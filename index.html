@@ -1,1 +1,452 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Portfolio | Budi Atong</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="particles"></div>
+
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">Budi<span>.</span></div>
+
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <button id="menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+
+        <div class="hero-content reveal">
+
+            <p class="small-title">WELCOME TO MY PORTFOLIO</p>
+
+            <h1>
+                Hi, I'm <span>Budi Atong</span>
+            </h1>
+
+            <h2>
+                I'm a <span id="typing"></span>
+            </h2>
+
+            <p class="hero-description">
+                Saya seorang pelajar yang tertarik dengan teknologi,
+                jaringan komputer, web development, dan berbagai hal
+                yang berhubungan dengan dunia IT.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#projects" class="btn primary">
+                    Lihat Project
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+
+                <a href="#contact" class="btn secondary">
+                    Hubungi Saya
+                </a>
+            </div>
+
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+
+        </div>
+
+        <div class="hero-image reveal">
+
+            <div class="profile-circle">
+                <div class="circle-glow"></div>
+
+                <div class="profile-placeholder">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+
+        <div class="section-title reveal">
+            <p>GET TO KNOW ME</p>
+            <h2>About <span>Me</span></h2>
+        </div>
+
+        <div class="about-container">
+
+            <div class="about-card reveal">
+                <div class="about-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+
+                <h3>Web Development</h3>
+
+                <p>
+                    Membuat website modern, responsif, dan memiliki
+                    tampilan menarik menggunakan HTML, CSS, dan JavaScript.
+                </p>
+            </div>
+
+            <div class="about-card reveal">
+                <div class="about-icon">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+
+                <h3>Networking</h3>
+
+                <p>
+                    Mempelajari jaringan komputer, konfigurasi server,
+                    MikroTik, Linux, Docker, serta berbagai teknologi jaringan.
+                </p>
+            </div>
+
+            <div class="about-card reveal">
+                <div class="about-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+
+                <h3>Creative IT</h3>
+
+                <p>
+                    Senang membuat project teknologi yang tidak hanya
+                    berfungsi tetapi juga memiliki tampilan yang menarik.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills" class="section skills-section">
+
+        <div class="section-title reveal">
+            <p>MY ABILITIES</p>
+            <h2>My <span>Skills</span></h2>
+        </div>
+
+        <div class="skills-container">
+
+            <div class="skills-left reveal">
+
+                <h3>Technical Skills</h3>
+
+                <div class="skill">
+                    <div class="skill-info">
+                        <span>HTML</span>
+                        <span>90%</span>
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--width:90%"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-info">
+                        <span>CSS</span>
+                        <span>85%</span>
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--width:85%"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-info">
+                        <span>JavaScript</span>
+                        <span>75%</span>
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--width:75%"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-info">
+                        <span>Networking</span>
+                        <span>80%</span>
+                    </div>
+
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--width:80%"></div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="skills-right reveal">
+
+                <div class="skill-box">
+                    <i class="fab fa-html5"></i>
+                    <span>HTML</span>
+                </div>
+
+                <div class="skill-box">
+                    <i class="fab fa-css3-alt"></i>
+                    <span>CSS</span>
+                </div>
+
+                <div class="skill-box">
+                    <i class="fab fa-js"></i>
+                    <span>JavaScript</span>
+                </div>
+
+                <div class="skill-box">
+                    <i class="fab fa-linux"></i>
+                    <span>Linux</span>
+                </div>
+
+                <div class="skill-box">
+                    <i class="fas fa-server"></i>
+                    <span>Server</span>
+                </div>
+
+                <div class="skill-box">
+                    <i class="fas fa-network-wired"></i>
+                    <span>Network</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+
+        <div class="section-title reveal">
+            <p>MY WORK</p>
+            <h2>Latest <span>Projects</span></h2>
+        </div>
+
+        <div class="projects-container">
+
+            <div class="project-card reveal">
+
+                <div class="project-image">
+                    <i class="fas fa-globe"></i>
+                </div>
+
+                <div class="project-content">
+                    <span>WEB DEVELOPMENT</span>
+
+                    <h3>Modern Website</h3>
+
+                    <p>
+                        Website modern dengan desain responsif
+                        dan animasi interaktif.
+                    </p>
+
+                    <div class="project-tech">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JS</span>
+                    </div>
+
+                    <a href="#" class="project-link">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+            </div>
+
+
+            <div class="project-card reveal">
+
+                <div class="project-image second">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+
+                <div class="project-content">
+                    <span>NETWORKING</span>
+
+                    <h3>Network Project</h3>
+
+                    <p>
+                        Simulasi jaringan komputer dengan konfigurasi
+                        server dan perangkat jaringan.
+                    </p>
+
+                    <div class="project-tech">
+                        <span>MikroTik</span>
+                        <span>Linux</span>
+                        <span>TCP/IP</span>
+                    </div>
+
+                    <a href="#" class="project-link">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+            </div>
+
+
+            <div class="project-card reveal">
+
+                <div class="project-image third">
+                    <i class="fab fa-docker"></i>
+                </div>
+
+                <div class="project-content">
+                    <span>DEVOPS</span>
+
+                    <h3>Docker Project</h3>
+
+                    <p>
+                        Deployment aplikasi menggunakan Docker Compose
+                        dengan beberapa container.
+                    </p>
+
+                    <div class="project-tech">
+                        <span>Docker</span>
+                        <span>Compose</span>
+                        <span>Nginx</span>
+                    </div>
+
+                    <a href="#" class="project-link">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact-section">
+
+        <div class="section-title reveal">
+            <p>LET'S CONNECT</p>
+            <h2>Contact <span>Me</span></h2>
+        </div>
+
+        <div class="contact-container reveal">
+
+            <div class="contact-info">
+
+                <h3>Let's work together!</h3>
+
+                <p>
+                    Punya project atau ingin berdiskusi tentang teknologi?
+                    Jangan ragu untuk menghubungi saya.
+                </p>
+
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <small>Email</small>
+                        <p>emailkamu@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fab fa-instagram"></i>
+                    <div>
+                        <small>Instagram</small>
+                        <p>@usernamekamu</p>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <form id="contact-form">
+
+                <input type="text"
+                       placeholder="Nama kamu"
+                       required>
+
+                <input type="email"
+                       placeholder="Email kamu"
+                       required>
+
+                <textarea
+                    placeholder="Tulis pesan..."
+                    rows="6"
+                    required></textarea>
+
+                <button type="submit" class="btn primary">
+                    Kirim Pesan
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-logo">
+            Budi<span>.</span>
+        </div>
+
+        <p>
+            © 2026 Budi Atong. All Rights Reserved.
+        </p>
+
+        <div class="footer-social">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+
+    </footer>
+
+
+    <button id="top-btn">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
