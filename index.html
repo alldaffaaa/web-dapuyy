@@ -4,449 +4,884 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Portfolio | Budi Atong</title>
+    <title>Portfolio | Muhammad All Daffa Hidayat</title>
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #050816;
+            color: white;
+            overflow-x: hidden;
+        }
 
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        /* BACKGROUND */
+        .background {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 20% 20%, #182b75 0%, transparent 30%),
+                radial-gradient(circle at 80% 70%, #551c75 0%, transparent 30%),
+                #050816;
+        }
+
+        .orb {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: .35;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .orb.one {
+            background: #00eaff;
+            top: -100px;
+            left: -100px;
+        }
+
+        .orb.two {
+            background: #8b5cf6;
+            right: -100px;
+            bottom: -100px;
+            animation-delay: 2s;
+        }
+
+        .orb.three {
+            background: #ff2bd6;
+            top: 45%;
+            left: 45%;
+            width: 220px;
+            height: 220px;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(50px, -40px);
+            }
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(15px);
+            background: rgba(5, 8, 22, .65);
+            border-bottom: 1px solid rgba(255,255,255,.08);
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+            color: #00eaff;
+            text-shadow: 0 0 20px #00eaff;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: .3s;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #00eaff;
+            text-shadow: 0 0 15px #00eaff;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 20px 60px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .profile {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 55px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #00eaff, #8b5cf6);
+            box-shadow:
+                0 0 25px #00eaff,
+                0 0 60px rgba(139,92,246,.7);
+            animation: profileFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes profileFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .hello {
+            color: #00eaff;
+            font-size: 18px;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: clamp(40px, 7vw, 78px);
+            line-height: 1.05;
+            margin-bottom: 15px;
+        }
+
+        h1 span {
+            background: linear-gradient(90deg, #00eaff, #8b5cf6, #ff2bd6);
+            background-size: 200%;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: gradient 4s linear infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0%;
+            }
+            100% {
+                background-position: 200%;
+            }
+        }
+
+        .typing {
+            font-size: 22px;
+            color: #cbd5e1;
+            min-height: 32px;
+        }
+
+        .cursor {
+            color: #00eaff;
+            animation: blink .7s infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .description {
+            max-width: 650px;
+            margin: 25px auto;
+            color: #94a3b8;
+            line-height: 1.8;
+        }
+
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            border: 1px solid #00eaff;
+            transition: .3s;
+            font-weight: bold;
+        }
+
+        .btn.primary {
+            background: linear-gradient(90deg, #00eaff, #8b5cf6);
+            border: none;
+            box-shadow: 0 0 25px rgba(0,234,255,.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 0 30px rgba(0,234,255,.5);
+        }
+
+        /* SECTION */
+        section {
+            padding: 100px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+        }
+
+        .section-title span {
+            color: #00eaff;
+        }
+
+        .section-title p {
+            color: #94a3b8;
+            margin-top: 10px;
+        }
+
+        /* ABOUT */
+        .about {
+            max-width: 1000px;
+            margin: auto;
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,.1);
+            background: rgba(255,255,255,.04);
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            text-align: center;
+            transition: .4s;
+        }
+
+        .about:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0,234,255,.5);
+            box-shadow: 0 20px 60px rgba(0,234,255,.1);
+        }
+
+        .about p {
+            color: #cbd5e1;
+            line-height: 1.9;
+            font-size: 17px;
+        }
+
+        /* BIODATA */
+        .cards {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            background: rgba(255,255,255,.05);
+            border: 1px solid rgba(255,255,255,.1);
+            backdrop-filter: blur(12px);
+            transition: .4s;
+        }
+
+        .card:hover {
+            transform: translateY(-12px);
+            border-color: #00eaff;
+            box-shadow: 0 0 35px rgba(0,234,255,.15);
+        }
+
+        .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: #00eaff;
+        }
+
+        .card p {
+            color: #cbd5e1;
+        }
+
+        /* SKILLS */
+        .skills {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .skill {
+            margin-bottom: 25px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .skill-info span:last-child {
+            color: #00eaff;
+        }
+
+        .bar {
+            height: 10px;
+            border-radius: 20px;
+            background: rgba(255,255,255,.1);
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            width: 0;
+            border-radius: 20px;
+            background: linear-gradient(90deg, #00eaff, #8b5cf6);
+            box-shadow: 0 0 15px #00eaff;
+            transition: width 2s ease;
+        }
+
+        /* PROJECT */
+        .projects {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project {
+            padding: 30px;
+            border-radius: 22px;
+            background: linear-gradient(
+                145deg,
+                rgba(0,234,255,.08),
+                rgba(139,92,246,.08)
+            );
+            border: 1px solid rgba(255,255,255,.1);
+            transition: .4s;
+        }
+
+        .project:hover {
+            transform: translateY(-12px) rotateX(3deg);
+            border-color: #8b5cf6;
+            box-shadow: 0 20px 50px rgba(139,92,246,.15);
+        }
+
+        .project h3 {
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .project p {
+            color: #94a3b8;
+            line-height: 1.7;
+        }
+
+        .tag {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 7px 12px;
+            border-radius: 20px;
+            background: rgba(0,234,255,.1);
+            color: #00eaff;
+            font-size: 12px;
+        }
+
+        /* CONTACT */
+        .contact {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .contact-box {
+            padding: 40px;
+            border-radius: 25px;
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.1);
+        }
+
+        .contact-box p {
+            color: #94a3b8;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid rgba(255,255,255,.08);
+            color: #64748b;
+        }
+
+        footer span {
+            color: #00eaff;
+        }
+
+        /* PARTICLES */
+        .particle {
+            position: fixed;
+            width: 3px;
+            height: 3px;
+            background: #00eaff;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: .6;
+            animation: particleMove linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes particleMove {
+            from {
+                transform: translateY(100vh);
+            }
+            to {
+                transform: translateY(-10vh);
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+            nav ul {
+                display: none;
+            }
+
+            .cards,
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 80px 5%;
+            }
+
+            .about {
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- Background -->
-    <div class="particles"></div>
+    <div class="background">
+        <div class="orb one"></div>
+        <div class="orb two"></div>
+        <div class="orb three"></div>
+    </div>
 
-    <!-- Navbar -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">Budi<span>.</span></div>
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">DAFFA.DEV</div>
 
-            <ul class="nav-links">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-
-            <button id="menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
-    </header>
-
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#project">Project</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
     <!-- HERO -->
-    <section id="home" class="hero">
+    <section class="hero" id="home">
 
-        <div class="hero-content reveal">
+        <div class="hero-content">
 
-            <p class="small-title">WELCOME TO MY PORTFOLIO</p>
+            <div class="profile">
+                AD
+            </div>
+
+            <div class="hello">
+                HELLO, I'M
+            </div>
 
             <h1>
-                Hi, I'm <span>Budi Atong</span>
+                Muhammad All <br>
+                <span>Daffa Hidayat</span>
             </h1>
 
-            <h2>
-                I'm a <span id="typing"></span>
-            </h2>
+            <div class="typing">
+                <span id="typingText"></span>
+                <span class="cursor">|</span>
+            </div>
 
-            <p class="hero-description">
-                Saya seorang pelajar yang tertarik dengan teknologi,
-                jaringan komputer, web development, dan berbagai hal
-                yang berhubungan dengan dunia IT.
+            <p class="description">
+                Pelajar kelas XI TKJ 4 yang tertarik dengan dunia teknologi,
+                jaringan komputer, web development, dan berbagai hal menarik
+                di bidang IT.
             </p>
 
-            <div class="hero-buttons">
-                <a href="#projects" class="btn primary">
-                    Lihat Project
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-
-                <a href="#contact" class="btn secondary">
-                    Hubungi Saya
-                </a>
+            <div class="buttons">
+                <a href="#about" class="btn primary">Explore Portfolio</a>
+                <a href="#contact" class="btn">Contact Me</a>
             </div>
 
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-            </div>
-
-        </div>
-
-        <div class="hero-image reveal">
-
-            <div class="profile-circle">
-                <div class="circle-glow"></div>
-
-                <div class="profile-placeholder">
-                    <i class="fas fa-user"></i>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="scroll-down">
-            <i class="fas fa-chevron-down"></i>
         </div>
 
     </section>
-
 
     <!-- ABOUT -->
-    <section id="about" class="section">
+    <section id="about">
 
-        <div class="section-title reveal">
-            <p>GET TO KNOW ME</p>
-            <h2>About <span>Me</span></h2>
+        <div class="section-title">
+            <h2>Tentang <span>Saya</span></h2>
+            <p>Kenali saya lebih dekat</p>
         </div>
 
-        <div class="about-container">
+        <div class="about">
+            <p>
+                Halo! Saya <strong>Muhammad All Daffa Hidayat</strong>,
+                seorang siswa dari kelas <strong>XI TKJ 4</strong>.
+                Saya memiliki ketertarikan terhadap teknologi informasi,
+                jaringan komputer, dan pengembangan website.
+                Saya senang mempelajari hal-hal baru dan mencoba membuat
+                berbagai project sederhana menggunakan teknologi yang saya pelajari.
+            </p>
+        </div>
 
-            <div class="about-card reveal">
-                <div class="about-icon">
-                    <i class="fas fa-code"></i>
-                </div>
+    </section>
 
-                <h3>Web Development</h3>
+    <!-- BIODATA -->
+    <section>
 
-                <p>
-                    Membuat website modern, responsif, dan memiliki
-                    tampilan menarik menggunakan HTML, CSS, dan JavaScript.
-                </p>
+        <div class="section-title">
+            <h2>Data <span>Diri</span></h2>
+            <p>Informasi singkat tentang saya</p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">👨‍💻</div>
+                <h3>Nama</h3>
+                <p>Muhammad All Daffa Hidayat</p>
             </div>
 
-            <div class="about-card reveal">
-                <div class="about-icon">
-                    <i class="fas fa-network-wired"></i>
-                </div>
-
-                <h3>Networking</h3>
-
-                <p>
-                    Mempelajari jaringan komputer, konfigurasi server,
-                    MikroTik, Linux, Docker, serta berbagai teknologi jaringan.
-                </p>
+            <div class="card">
+                <div class="icon">🎓</div>
+                <h3>Kelas</h3>
+                <p>XI TKJ 4</p>
             </div>
 
-            <div class="about-card reveal">
-                <div class="about-icon">
-                    <i class="fas fa-laptop-code"></i>
-                </div>
+            <div class="card">
+                <div class="icon">🎂</div>
+                <h3>Umur</h3>
+                <p>100 Tahun</p>
+            </div>
 
-                <h3>Creative IT</h3>
+            <div class="card">
+                <div class="icon">🎮</div>
+                <h3>Hobi</h3>
+                <p>Nyoli</p>
+            </div>
 
-                <p>
-                    Senang membuat project teknologi yang tidak hanya
-                    berfungsi tetapi juga memiliki tampilan yang menarik.
-                </p>
+            <div class="card">
+                <div class="icon">🌐</div>
+                <h3>Bidang</h3>
+                <p>Teknologi & Jaringan</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🚀</div>
+                <h3>Tujuan</h3>
+                <p>Terus berkembang di bidang IT</p>
             </div>
 
         </div>
 
     </section>
-
 
     <!-- SKILLS -->
-    <section id="skills" class="section skills-section">
+    <section id="skills">
 
-        <div class="section-title reveal">
-            <p>MY ABILITIES</p>
+        <div class="section-title">
             <h2>My <span>Skills</span></h2>
+            <p>Kemampuan yang sedang saya pelajari</p>
         </div>
 
-        <div class="skills-container">
+        <div class="skills">
 
-            <div class="skills-left reveal">
-
-                <h3>Technical Skills</h3>
-
-                <div class="skill">
-                    <div class="skill-info">
-                        <span>HTML</span>
-                        <span>90%</span>
-                    </div>
-
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="--width:90%"></div>
-                    </div>
-                </div>
-
-                <div class="skill">
-                    <div class="skill-info">
-                        <span>CSS</span>
-                        <span>85%</span>
-                    </div>
-
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="--width:85%"></div>
-                    </div>
-                </div>
-
-                <div class="skill">
-                    <div class="skill-info">
-                        <span>JavaScript</span>
-                        <span>75%</span>
-                    </div>
-
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="--width:75%"></div>
-                    </div>
-                </div>
-
-                <div class="skill">
-                    <div class="skill-info">
-                        <span>Networking</span>
-                        <span>80%</span>
-                    </div>
-
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="--width:80%"></div>
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div class="skills-right reveal">
-
-                <div class="skill-box">
-                    <i class="fab fa-html5"></i>
+            <div class="skill">
+                <div class="skill-info">
                     <span>HTML</span>
+                    <span>90%</span>
                 </div>
+                <div class="bar">
+                    <div class="progress" data-width="90%"></div>
+                </div>
+            </div>
 
-                <div class="skill-box">
-                    <i class="fab fa-css3-alt"></i>
+            <div class="skill">
+                <div class="skill-info">
                     <span>CSS</span>
+                    <span>85%</span>
                 </div>
+                <div class="bar">
+                    <div class="progress" data-width="85%"></div>
+                </div>
+            </div>
 
-                <div class="skill-box">
-                    <i class="fab fa-js"></i>
+            <div class="skill">
+                <div class="skill-info">
                     <span>JavaScript</span>
+                    <span>75%</span>
                 </div>
-
-                <div class="skill-box">
-                    <i class="fab fa-linux"></i>
-                    <span>Linux</span>
+                <div class="bar">
+                    <div class="progress" data-width="75%"></div>
                 </div>
+            </div>
 
-                <div class="skill-box">
-                    <i class="fas fa-server"></i>
-                    <span>Server</span>
+            <div class="skill">
+                <div class="skill-info">
+                    <span>Networking</span>
+                    <span>80%</span>
                 </div>
-
-                <div class="skill-box">
-                    <i class="fas fa-network-wired"></i>
-                    <span>Network</span>
+                <div class="bar">
+                    <div class="progress" data-width="80%"></div>
                 </div>
+            </div>
 
+            <div class="skill">
+                <div class="skill-info">
+                    <span>Docker</span>
+                    <span>70%</span>
+                </div>
+                <div class="bar">
+                    <div class="progress" data-width="70%"></div>
+                </div>
             </div>
 
         </div>
 
     </section>
 
+    <!-- PROJECT -->
+    <section id="project">
 
-    <!-- PROJECTS -->
-    <section id="projects" class="section">
-
-        <div class="section-title reveal">
-            <p>MY WORK</p>
-            <h2>Latest <span>Projects</span></h2>
+        <div class="section-title">
+            <h2>My <span>Projects</span></h2>
+            <p>Beberapa project yang pernah saya kerjakan</p>
         </div>
 
-        <div class="projects-container">
+        <div class="projects">
 
-            <div class="project-card reveal">
-
-                <div class="project-image">
-                    <i class="fas fa-globe"></i>
-                </div>
-
-                <div class="project-content">
-                    <span>WEB DEVELOPMENT</span>
-
-                    <h3>Modern Website</h3>
-
-                    <p>
-                        Website modern dengan desain responsif
-                        dan animasi interaktif.
-                    </p>
-
-                    <div class="project-tech">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JS</span>
-                    </div>
-
-                    <a href="#" class="project-link">
-                        View Project <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
+            <div class="project">
+                <h3>🌐 Website Portfolio</h3>
+                <p>
+                    Membuat website portfolio pribadi menggunakan
+                    HTML, CSS, dan JavaScript dengan tampilan modern.
+                </p>
+                <span class="tag">HTML • CSS • JS</span>
             </div>
 
-
-            <div class="project-card reveal">
-
-                <div class="project-image second">
-                    <i class="fas fa-network-wired"></i>
-                </div>
-
-                <div class="project-content">
-                    <span>NETWORKING</span>
-
-                    <h3>Network Project</h3>
-
-                    <p>
-                        Simulasi jaringan komputer dengan konfigurasi
-                        server dan perangkat jaringan.
-                    </p>
-
-                    <div class="project-tech">
-                        <span>MikroTik</span>
-                        <span>Linux</span>
-                        <span>TCP/IP</span>
-                    </div>
-
-                    <a href="#" class="project-link">
-                        View Project <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
+            <div class="project">
+                <h3>🐳 Docker Project</h3>
+                <p>
+                    Belajar menjalankan container dan membuat aplikasi
+                    menggunakan Docker serta Docker Compose.
+                </p>
+                <span class="tag">Docker</span>
             </div>
 
-
-            <div class="project-card reveal">
-
-                <div class="project-image third">
-                    <i class="fab fa-docker"></i>
-                </div>
-
-                <div class="project-content">
-                    <span>DEVOPS</span>
-
-                    <h3>Docker Project</h3>
-
-                    <p>
-                        Deployment aplikasi menggunakan Docker Compose
-                        dengan beberapa container.
-                    </p>
-
-                    <div class="project-tech">
-                        <span>Docker</span>
-                        <span>Compose</span>
-                        <span>Nginx</span>
-                    </div>
-
-                    <a href="#" class="project-link">
-                        View Project <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
+            <div class="project">
+                <h3>🖧 Network Lab</h3>
+                <p>
+                    Praktik konfigurasi jaringan, IP address,
+                    subnetting, Ubuntu Server, dan berbagai perangkat jaringan.
+                </p>
+                <span class="tag">Networking</span>
             </div>
 
         </div>
 
     </section>
-
 
     <!-- CONTACT -->
-    <section id="contact" class="section contact-section">
+    <section id="contact">
 
-        <div class="section-title reveal">
-            <p>LET'S CONNECT</p>
+        <div class="section-title">
             <h2>Contact <span>Me</span></h2>
+            <p>Let's connect</p>
         </div>
 
-        <div class="contact-container reveal">
+        <div class="contact">
 
-            <div class="contact-info">
-
-                <h3>Let's work together!</h3>
+            <div class="contact-box">
 
                 <p>
-                    Punya project atau ingin berdiskusi tentang teknologi?
-                    Jangan ragu untuk menghubungi saya.
+                    Terima kasih sudah mengunjungi portfolio saya.
+                    Website ini dibuat sebagai portfolio pribadi
+                    dan bagian dari perjalanan saya belajar di bidang teknologi.
                 </p>
 
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <small>Email</small>
-                        <p>emailkamu@gmail.com</p>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <i class="fab fa-instagram"></i>
-                    <div>
-                        <small>Instagram</small>
-                        <p>@usernamekamu</p>
-                    </div>
-                </div>
+                <a href="#home" class="btn primary">
+                    Back To Top ↑
+                </a>
 
             </div>
-
-
-            <form id="contact-form">
-
-                <input type="text"
-                       placeholder="Nama kamu"
-                       required>
-
-                <input type="email"
-                       placeholder="Email kamu"
-                       required>
-
-                <textarea
-                    placeholder="Tulis pesan..."
-                    rows="6"
-                    required></textarea>
-
-                <button type="submit" class="btn primary">
-                    Kirim Pesan
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-
-            </form>
 
         </div>
 
     </section>
-
 
     <!-- FOOTER -->
     <footer>
-
-        <div class="footer-logo">
-            Budi<span>.</span>
-        </div>
-
-        <p>
-            © 2026 Budi Atong. All Rights Reserved.
-        </p>
-
-        <div class="footer-social">
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-        </div>
-
+        © 2026 <span>Muhammad All Daffa Hidayat</span> — XI TKJ 4
     </footer>
 
+    <script>
 
-    <button id="top-btn">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+        /* TYPING EFFECT */
+
+        const texts = [
+            "Student XI TKJ 4",
+            "Web Developer",
+            "Network Enthusiast",
+            "Future IT Professional"
+        ];
+
+        const typingText = document.getElementById("typingText");
+
+        let textIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+
+        function typingEffect() {
+
+            const currentText = texts[textIndex];
+
+            if (!deleting) {
+                typingText.textContent =
+                    currentText.substring(0, charIndex + 1);
+
+                charIndex++;
+
+                if (charIndex === currentText.length) {
+                    deleting = true;
+
+                    setTimeout(typingEffect, 1500);
+                    return;
+                }
+
+            } else {
+
+                typingText.textContent =
+                    currentText.substring(0, charIndex - 1);
+
+                charIndex--;
+
+                if (charIndex === 0) {
+                    deleting = false;
+                    textIndex++;
+
+                    if (textIndex >= texts.length) {
+                        textIndex = 0;
+                    }
+                }
+            }
+
+            setTimeout(
+                typingEffect,
+                deleting ? 50 : 100
+            );
+        }
+
+        typingEffect();
 
 
-    <script src="script.js"></script>
+        /* SKILL BAR ANIMATION */
+
+        const progressBars =
+            document.querySelectorAll(".progress");
+
+        const observer =
+            new IntersectionObserver(entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        const width =
+                            entry.target.getAttribute("data-width");
+
+                        entry.target.style.width = width;
+
+                    }
+
+                });
+
+            }, {
+                threshold: 0.5
+            });
+
+        progressBars.forEach(bar => {
+            observer.observe(bar);
+        });
+
+
+        /* PARTICLES */
+
+        for (let i = 0; i < 45; i++) {
+
+            const particle =
+                document.createElement("div");
+
+            particle.classList.add("particle");
+
+            particle.style.left =
+                Math.random() * 100 + "vw";
+
+            particle.style.animationDuration =
+                (Math.random() * 8 + 5) + "s";
+
+            particle.style.animationDelay =
+                Math.random() * 5 + "s";
+
+            particle.style.opacity =
+                Math.random();
+
+            document.body.appendChild(particle);
+        }
+
+
+        /* MOUSE GLOW EFFECT */
+
+        document.addEventListener("mousemove", e => {
+
+            const glow =
+                document.querySelector(".orb.three");
+
+            glow.style.left =
+                (e.clientX - 100) + "px";
+
+            glow.style.top =
+                (e.clientY - 100) + "px";
+
+        });
+
+    </script>
 
 </body>
 </html>
