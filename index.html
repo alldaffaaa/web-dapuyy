@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Muhammad All Daffa Hidayat | Portfolio</title>
 
 <style>
@@ -88,8 +89,13 @@ body::before{
 }
 
 @keyframes blob{
-    from{transform:translate(0,0) scale(1)}
-    to{transform:translate(100px,-70px) scale(1.2)}
+    from{
+        transform:translate(0,0) scale(1);
+    }
+
+    to{
+        transform:translate(100px,-70px) scale(1.2);
+    }
 }
 
 /* NAVBAR */
@@ -106,10 +112,12 @@ nav{
     justify-content:space-between;
     align-items:center;
     z-index:1000;
+
     border:1px solid rgba(255,255,255,.1);
     background:rgba(5,8,20,.65);
     backdrop-filter:blur(20px);
     border-radius:18px;
+
     box-shadow:0 10px 40px rgba(0,0,0,.3);
 }
 
@@ -156,85 +164,128 @@ nav a:hover{
     display:inline-flex;
     align-items:center;
     gap:8px;
+
     padding:9px 16px;
+
     border:1px solid rgba(0,245,255,.3);
     border-radius:50px;
+
     background:rgba(0,245,255,.06);
+
     color:var(--cyan);
+
     font-size:13px;
+
     margin-bottom:25px;
+
     animation:pulse 2s infinite;
 }
 
 .dot{
     width:8px;
     height:8px;
+
     border-radius:50%;
+
     background:#22c55e;
+
     box-shadow:0 0 12px #22c55e;
 }
 
 @keyframes pulse{
-    50%{box-shadow:0 0 30px rgba(0,245,255,.15)}
+
+    50%{
+        box-shadow:0 0 30px rgba(0,245,255,.15);
+    }
 }
 
 .avatar{
     width:155px;
     height:155px;
+
     margin:0 auto 30px;
+
     border-radius:50%;
+
     padding:4px;
-    background:linear-gradient(135deg,var(--cyan),var(--purple),var(--pink));
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--cyan),
+            var(--purple),
+            var(--pink)
+        );
+
     box-shadow:
         0 0 30px rgba(0,245,255,.35),
         0 0 80px rgba(139,92,246,.2);
+
     animation:avatar 4s ease-in-out infinite;
 }
 
 .avatar-inner{
     width:100%;
     height:100%;
+
     border-radius:50%;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     background:#080d1d;
+
     font-size:50px;
     font-weight:800;
 }
 
 @keyframes avatar{
-    50%{transform:translateY(-12px) rotate(3deg)}
+
+    50%{
+        transform:translateY(-12px) rotate(3deg);
+    }
 }
 
 h1{
     font-size:clamp(42px,7vw,82px);
     line-height:1;
+
     letter-spacing:-4px;
+
     margin-bottom:20px;
 }
 
 .gradient{
-    background:linear-gradient(
-        90deg,
-        var(--cyan),
-        var(--purple),
-        var(--pink),
-        var(--cyan)
-    );
+    background:
+        linear-gradient(
+            90deg,
+            var(--cyan),
+            var(--purple),
+            var(--pink),
+            var(--cyan)
+        );
+
     background-size:300%;
+
     -webkit-background-clip:text;
+
     color:transparent;
+
     animation:gradient 5s linear infinite;
 }
 
 @keyframes gradient{
-    to{background-position:300%}
+
+    to{
+        background-position:300%;
+    }
 }
 
 .subtitle{
     font-size:22px;
     color:#cbd5e1;
+
     min-height:35px;
 }
 
@@ -244,39 +295,63 @@ h1{
 
 .desc{
     max-width:680px;
+
     margin:25px auto;
+
     line-height:1.8;
+
     color:var(--muted);
 }
 
 .buttons{
     display:flex;
+
     justify-content:center;
+
     gap:15px;
+
     flex-wrap:wrap;
+
     margin-top:30px;
 }
 
 .btn{
     position:relative;
+
     overflow:hidden;
+
     padding:15px 28px;
+
     border-radius:12px;
+
     text-decoration:none;
+
     font-weight:700;
+
     color:white;
+
     border:1px solid rgba(255,255,255,.15);
+
     transition:.3s;
 }
 
 .btn.primary{
-    background:linear-gradient(135deg,var(--cyan),var(--purple));
-    box-shadow:0 0 30px rgba(0,245,255,.2);
+    background:
+        linear-gradient(
+            135deg,
+            var(--cyan),
+            var(--purple)
+        );
+
+    box-shadow:
+        0 0 30px rgba(0,245,255,.2);
 }
 
 .btn:hover{
     transform:translateY(-5px);
-    box-shadow:0 15px 40px rgba(0,245,255,.2);
+
+    box-shadow:
+        0 15px 40px rgba(0,245,255,.2);
 }
 
 /* SECTION */
@@ -287,22 +362,27 @@ section{
 
 .title{
     text-align:center;
+
     margin-bottom:55px;
 }
 
 .title small{
     color:var(--cyan);
+
     letter-spacing:4px;
+
     font-weight:700;
 }
 
 .title h2{
     font-size:45px;
+
     margin-top:10px;
 }
 
 .title p{
     color:var(--muted);
+
     margin-top:12px;
 }
 
@@ -310,29 +390,42 @@ section{
 
 .about-container{
     max-width:1050px;
+
     margin:auto;
+
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:25px;
 }
 
 .glass{
     background:rgba(255,255,255,.035);
+
     border:1px solid rgba(255,255,255,.09);
+
     border-radius:25px;
+
     padding:35px;
+
     backdrop-filter:blur(20px);
+
     transition:.4s;
 }
 
 .glass:hover{
     transform:translateY(-8px);
+
     border-color:rgba(0,245,255,.35);
-    box-shadow:0 20px 60px rgba(0,245,255,.08);
+
+    box-shadow:
+        0 20px 60px rgba(0,245,255,.08);
 }
 
 .glass h3{
     font-size:22px;
+
     margin-bottom:18px;
 }
 
@@ -342,20 +435,28 @@ section{
 
 .glass p{
     color:#aeb9c9;
+
     line-height:1.9;
 }
 
 .info{
     display:grid;
+
     gap:15px;
 }
 
 .info-item{
     display:flex;
+
     justify-content:space-between;
+
     padding:15px;
+
     border-radius:12px;
+
     background:rgba(255,255,255,.035);
+
+    gap:20px;
 }
 
 .info-item span:first-child{
@@ -364,34 +465,55 @@ section{
 
 .info-item span:last-child{
     color:white;
+
     font-weight:600;
+
+    text-align:right;
 }
 
 /* STATS */
 
 .stats{
     max-width:1050px;
+
     margin:25px auto 0;
+
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
+
     gap:20px;
 }
 
 .stat{
     text-align:center;
+
     padding:28px;
+
     border-radius:20px;
+
     background:rgba(255,255,255,.035);
+
     border:1px solid rgba(255,255,255,.08);
+
+    transition:.3s;
+}
+
+.stat:hover{
+    transform:translateY(-6px);
+
+    border-color:rgba(0,245,255,.3);
 }
 
 .stat h3{
     font-size:35px;
+
     color:var(--cyan);
 }
 
 .stat p{
     color:var(--muted);
+
     margin-top:5px;
 }
 
@@ -399,6 +521,7 @@ section{
 
 .skills{
     max-width:850px;
+
     margin:auto;
 }
 
@@ -408,7 +531,9 @@ section{
 
 .skill-head{
     display:flex;
+
     justify-content:space-between;
+
     margin-bottom:9px;
 }
 
@@ -418,17 +543,30 @@ section{
 
 .bar{
     height:10px;
+
     border-radius:20px;
+
     background:rgba(255,255,255,.08);
+
     overflow:hidden;
 }
 
 .progress{
     height:100%;
+
     width:0;
+
     border-radius:20px;
-    background:linear-gradient(90deg,var(--cyan),var(--purple));
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--cyan),
+            var(--purple)
+        );
+
     box-shadow:0 0 15px var(--cyan);
+
     transition:2s ease;
 }
 
@@ -436,67 +574,99 @@ section{
 
 .projects{
     max-width:1100px;
+
     margin:auto;
+
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
+
     gap:25px;
 }
 
 .project{
     min-height:260px;
+
     padding:30px;
+
     border-radius:25px;
-    background:linear-gradient(
-        145deg,
-        rgba(255,255,255,.06),
-        rgba(255,255,255,.015)
-    );
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.06),
+            rgba(255,255,255,.015)
+        );
+
     border:1px solid rgba(255,255,255,.09);
+
     transition:.5s;
+
     position:relative;
+
     overflow:hidden;
 }
 
 .project::before{
     content:"";
+
     position:absolute;
+
     width:150px;
     height:150px;
+
     border-radius:50%;
+
     background:var(--cyan);
+
     filter:blur(80px);
+
     opacity:.12;
+
     right:-60px;
     top:-60px;
 }
 
 .project:hover{
-    transform:translateY(-12px) scale(1.02);
-    border-color:rgba(0,245,255,.4);
+    transform:
+        translateY(-12px)
+        scale(1.02);
+
+    border-color:
+        rgba(0,245,255,.4);
 }
 
 .project-icon{
     font-size:38px;
+
     margin-bottom:20px;
 }
 
 .project h3{
     margin-bottom:12px;
+
     font-size:20px;
 }
 
 .project p{
     color:var(--muted);
+
     line-height:1.7;
 }
 
 .tag{
     display:inline-block;
+
     margin-top:20px;
+
     padding:7px 12px;
+
     border-radius:30px;
+
     background:rgba(0,245,255,.08);
+
     color:var(--cyan);
+
     font-size:12px;
 }
 
@@ -504,7 +674,9 @@ section{
 
 .contact{
     max-width:800px;
+
     margin:auto;
+
     text-align:center;
 }
 
@@ -514,12 +686,15 @@ section{
 
 .contact-box .big{
     font-size:55px;
+
     margin-bottom:15px;
 }
 
 .contact-box p{
     color:var(--muted);
+
     line-height:1.8;
+
     margin-bottom:25px;
 }
 
@@ -527,8 +702,12 @@ section{
 
 footer{
     text-align:center;
+
     padding:30px;
-    border-top:1px solid rgba(255,255,255,.08);
+
+    border-top:
+        1px solid rgba(255,255,255,.08);
+
     color:#64748b;
 }
 
@@ -540,12 +719,15 @@ footer span{
 
 .reveal{
     opacity:0;
+
     transform:translateY(50px);
+
     transition:1s ease;
 }
 
 .reveal.active{
     opacity:1;
+
     transform:translateY(0);
 }
 
@@ -553,19 +735,33 @@ footer span{
 
 .particle{
     position:fixed;
+
     width:3px;
     height:3px;
+
     background:var(--cyan);
+
     border-radius:50%;
+
     pointer-events:none;
+
     opacity:.5;
+
     z-index:-2;
-    animation:particle linear infinite;
+
+    animation:
+        particle linear infinite;
 }
 
 @keyframes particle{
-    from{transform:translateY(105vh)}
-    to{transform:translateY(-10vh)}
+
+    from{
+        transform:translateY(105vh);
+    }
+
+    to{
+        transform:translateY(-10vh);
+    }
 }
 
 /* MOBILE */
@@ -603,11 +799,22 @@ footer span{
     .title h2{
         font-size:36px;
     }
+
+    .info-item{
+        flex-direction:column;
+        gap:5px;
+    }
+
+    .info-item span:last-child{
+        text-align:left;
+    }
 }
 </style>
 </head>
 
 <body>
+
+<!-- BACKGROUND -->
 
 <div class="bg">
     <div class="blob blob1"></div>
@@ -615,19 +822,41 @@ footer span{
     <div class="blob blob3"></div>
 </div>
 
+
 <!-- NAVBAR -->
 
 <nav>
-    <div class="logo">DAFFA.DEV</div>
+
+    <div class="logo">
+        DAFFA.DEV
+    </div>
 
     <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#project">Project</a></li>
-        <li><a href="#contact">Contact</a></li>
+
+        <li>
+            <a href="#home">Home</a>
+        </li>
+
+        <li>
+            <a href="#about">About</a>
+        </li>
+
+        <li>
+            <a href="#skills">Skills</a>
+        </li>
+
+        <li>
+            <a href="#project">Project</a>
+        </li>
+
+        <li>
+            <a href="#contact">Contact</a>
+        </li>
+
     </ul>
+
 </nav>
+
 
 <!-- HERO -->
 
@@ -636,253 +865,63 @@ footer span{
     <div class="hero-content">
 
         <div class="badge">
+
             <span class="dot"></span>
-            Available for learning & creating
+
+            Student • XI TKJ 4
+
         </div>
+
 
         <div class="avatar">
-            <div class="avatar-inner">AD</div>
+
+            <div class="avatar-inner">
+                AD
+            </div>
+
         </div>
+
 
         <h1>
+
             Muhammad All<br>
-            <span class="gradient">Daffa Hidayat</span>
+
+            <span class="gradient">
+                Daffa Hidayat
+            </span>
+
         </h1>
 
+
         <div class="subtitle">
-            <span id="typing"></span><span class="cursor">|</span>
+
+            <span id="typing"></span>
+
+            <span class="cursor">
+                |
+            </span>
+
         </div>
+
 
         <p class="desc">
-            Pelajar <b>XI TKJ 4</b> yang tertarik dengan dunia
-            teknologi, jaringan komputer, web development,
-            dan berbagai project kreatif di bidang IT.
+
+            Pelajar <b>XI TKJ 4</b> yang tertarik
+            dengan dunia teknologi, jaringan komputer,
+            web development, dan berbagai project
+            kreatif di bidang IT.
+
         </p>
 
+
         <div class="buttons">
-            <a href="#about" class="btn primary">Explore My World ✨</a>
-            <a href="#project" class="btn">View Projects →</a>
-        </div>
 
-    </div>
+            <a href="#about" class="btn primary">
+                Explore My World ✨
+            </a>
 
-</section>
-
-<!-- ABOUT -->
-
-<section id="about">
-
-    <div class="title reveal">
-        <small>WHO AM I?</small>
-        <h2>Tentang <span class="gradient">Saya</span></h2>
-        <p>Sedikit cerita tentang saya</p>
-    </div>
-
-    <div class="about-container reveal">
-
-        <div class="glass">
-            <h3>👋 Halo, saya <span>Daffa</span></h3>
-
-            <p>
-                Nama saya <b>Muhammad All Daffa Hidayat</b>.
-                Saya merupakan siswa kelas XI TKJ 4 yang
-                sedang belajar dan mengembangkan kemampuan
-                di bidang teknologi informasi.
-                Saya tertarik dengan jaringan komputer,
-                pemrograman web, Linux, Docker, dan teknologi
-                lainnya.
-            </p>
-        </div>
-
-        <div class="glass">
-            <h3>📌 Personal Info</h3>
-
-            <div class="info">
-
-                <div class="info-item">
-                    <span>Nama</span>
-                    <span>Muhammad All Daffa Hidayat</span>
-                </div>
-
-                <div class="info-item">
-                    <span>Kelas</span>
-                    <span>XI TKJ 4</span>
-                </div>
-
-                <div class="info-item">
-                    <span>Umur</span>
-                    <span>100 Tahun</span>
-                </div>
-
-                <div class="info-item">
-                    <span>Hobi</span>
-                    <span>Nyoli 🎮</span>
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-
-    <div class="stats reveal">
-
-        <div class="stat">
-            <h3>XI</h3>
-            <p>Kelas</p>
-        </div>
-
-        <div class="stat">
-            <h3>TKJ</h3>
-            <p>Jurusan</p>
-        </div>
-
-        <div class="stat">
-            <h3>∞</h3>
-            <p>Semangat Belajar</p>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- SKILLS -->
-
-<section id="skills">
-
-    <div class="title reveal">
-        <small>MY ABILITIES</small>
-        <h2>My <span class="gradient">Skills</span></h2>
-        <p>Teknologi yang sedang saya pelajari</p>
-    </div>
-
-    <div class="skills reveal">
-
-        <div class="skill">
-            <div class="skill-head">
-                <span>HTML</span>
-                <span>90%</span>
-            </div>
-            <div class="bar">
-                <div class="progress" data-width="90%"></div>
-            </div>
-        </div>
-
-        <div class="skill">
-            <div class="skill-head">
-                <span>CSS</span>
-                <span>85%</span>
-            </div>
-            <div class="bar">
-                <div class="progress" data-width="85%"></div>
-            </div>
-        </div>
-
-        <div class="skill">
-            <div class="skill-head">
-                <span>JavaScript</span>
-                <span>75%</span>
-            </div>
-            <div class="bar">
-                <div class="progress" data-width="75%"></div>
-            </div>
-        </div>
-
-        <div class="skill">
-            <div class="skill-head">
-                <span>Networking</span>
-                <span>85%</span>
-            </div>
-            <div class="bar">
-                <div class="progress" data-width="85%"></div>
-            </div>
-        </div>
-
-        <div class="skill">
-            <div class="skill-head">
-                <span>Docker</span>
-                <span>70%</span>
-            </div>
-            <div class="bar">
-                <div class="progress" data-width="70%"></div>
-            </div>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- PROJECT -->
-
-<section id="project">
-
-    <div class="title reveal">
-        <small>WHAT I'VE DONE</small>
-        <h2>My <span class="gradient">Projects</span></h2>
-        <p>Beberapa project yang saya kerjakan</p>
-    </div>
-
-    <div class="projects">
-
-        <div class="project reveal">
-            <div class="project-icon">🌐</div>
-            <h3>Modern Portfolio</h3>
-            <p>
-                Website portfolio pribadi dengan desain
-                modern, animasi, responsive layout,
-                dan JavaScript.
-            </p>
-            <span class="tag">HTML • CSS • JS</span>
-        </div>
-
-        <div class="project reveal">
-            <div class="project-icon">🐳</div>
-            <h3>Docker Compose</h3>
-            <p>
-                Project menjalankan beberapa service
-                menggunakan Docker Compose seperti
-                WordPress dan database.
-            </p>
-            <span class="tag">Docker</span>
-        </div>
-
-        <div class="project reveal">
-            <div class="project-icon">🖧</div>
-            <h3>Network Laboratory</h3>
-            <p>
-                Praktik jaringan komputer, subnetting,
-                IP address, Ubuntu Server, dan konfigurasi
-                perangkat jaringan.
-            </p>
-            <span class="tag">Networking</span>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- CONTACT -->
-
-<section id="contact">
-
-    <div class="title reveal">
-        <small>LET'S CONNECT</small>
-        <h2>Contact <span class="gradient">Me</span></h2>
-    </div>
-
-    <div class="contact reveal">
-
-        <div class="glass contact-box">
-
-            <div class="big">🚀</div>
-
-            <p>
-                Terima kasih sudah mampir ke portfolio saya.
-                Saya akan terus belajar, berkembang,
-                dan membuat project-project baru di dunia IT.
-            </p>
-
-            <a href="#home" class="btn primary">
-                Back To Top ↑
+            <a href="#project" class="btn">
+                View Projects →
             </a>
 
         </div>
@@ -891,78 +930,648 @@ footer span{
 
 </section>
 
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="title reveal">
+
+        <small>
+            WHO AM I?
+        </small>
+
+        <h2>
+
+            Tentang
+
+            <span class="gradient">
+                Saya
+            </span>
+
+        </h2>
+
+        <p>
+            Sedikit cerita tentang saya
+        </p>
+
+    </div>
+
+
+    <div class="about-container reveal">
+
+
+        <div class="glass">
+
+            <h3>
+                👋 Halo, saya
+                <span>Daffa</span>
+            </h3>
+
+
+            <p>
+
+                Nama saya
+                <b>Muhammad All Daffa Hidayat</b>.
+
+                Saya merupakan siswa kelas
+                <b>XI TKJ 4</b> yang sedang belajar
+                dan mengembangkan kemampuan
+                di bidang teknologi informasi.
+
+                Saya tertarik dengan jaringan komputer,
+                pemrograman web, Linux, Docker,
+                dan berbagai teknologi lainnya.
+
+            </p>
+
+        </div>
+
+
+        <div class="glass">
+
+            <h3>
+                📌 Personal Info
+            </h3>
+
+
+            <div class="info">
+
+
+                <div class="info-item">
+
+                    <span>
+                        Nama
+                    </span>
+
+                    <span>
+                        Muhammad All Daffa Hidayat
+                    </span>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>
+                        Kelas
+                    </span>
+
+                    <span>
+                        XI TKJ 4
+                    </span>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>
+                        Umur
+                    </span>
+
+                    <span>
+                        16 Tahun
+                    </span>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>
+                        Hobi
+                    </span>
+
+                    <span>
+                        Main Futsal ⚽
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- STATS -->
+
+    <div class="stats reveal">
+
+
+        <div class="stat">
+
+            <h3>
+                XI
+            </h3>
+
+            <p>
+                Kelas
+            </p>
+
+        </div>
+
+
+        <div class="stat">
+
+            <h3>
+                TKJ
+            </h3>
+
+            <p>
+                Jurusan
+            </p>
+
+        </div>
+
+
+        <div class="stat">
+
+            <h3>
+                ∞
+            </h3>
+
+            <p>
+                Semangat Belajar
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+    <div class="title reveal">
+
+        <small>
+            MY ABILITIES
+        </small>
+
+        <h2>
+
+            My
+
+            <span class="gradient">
+                Skills
+            </span>
+
+        </h2>
+
+        <p>
+            Teknologi yang sedang saya pelajari
+        </p>
+
+    </div>
+
+
+    <div class="skills reveal">
+
+
+        <div class="skill">
+
+            <div class="skill-head">
+
+                <span>
+                    HTML
+                </span>
+
+                <span>
+                    90%
+                </span>
+
+            </div>
+
+            <div class="bar">
+
+                <div
+                    class="progress"
+                    data-width="90%">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-head">
+
+                <span>
+                    CSS
+                </span>
+
+                <span>
+                    85%
+                </span>
+
+            </div>
+
+            <div class="bar">
+
+                <div
+                    class="progress"
+                    data-width="85%">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-head">
+
+                <span>
+                    JavaScript
+                </span>
+
+                <span>
+                    75%
+                </span>
+
+            </div>
+
+            <div class="bar">
+
+                <div
+                    class="progress"
+                    data-width="75%">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-head">
+
+                <span>
+                    Networking
+                </span>
+
+                <span>
+                    85%
+                </span>
+
+            </div>
+
+            <div class="bar">
+
+                <div
+                    class="progress"
+                    data-width="85%">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-head">
+
+                <span>
+                    Docker
+                </span>
+
+                <span>
+                    70%
+                </span>
+
+            </div>
+
+            <div class="bar">
+
+                <div
+                    class="progress"
+                    data-width="70%">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROJECT -->
+
+<section id="project">
+
+    <div class="title reveal">
+
+        <small>
+            WHAT I'VE DONE
+        </small>
+
+        <h2>
+
+            My
+
+            <span class="gradient">
+                Projects
+            </span>
+
+        </h2>
+
+        <p>
+            Beberapa project yang saya kerjakan
+        </p>
+
+    </div>
+
+
+    <div class="projects">
+
+
+        <div class="project reveal">
+
+            <div class="project-icon">
+                🌐
+            </div>
+
+            <h3>
+                Modern Portfolio
+            </h3>
+
+            <p>
+
+                Website portfolio pribadi
+                dengan desain modern,
+                animasi, responsive layout,
+                dan JavaScript.
+
+            </p>
+
+            <span class="tag">
+                HTML • CSS • JS
+            </span>
+
+        </div>
+
+
+        <div class="project reveal">
+
+            <div class="project-icon">
+                🐳
+            </div>
+
+            <h3>
+                Docker Compose
+            </h3>
+
+            <p>
+
+                Project menjalankan beberapa
+                service menggunakan Docker Compose
+                seperti WordPress dan database.
+
+            </p>
+
+            <span class="tag">
+                Docker
+            </span>
+
+        </div>
+
+
+        <div class="project reveal">
+
+            <div class="project-icon">
+                🖧
+            </div>
+
+            <h3>
+                Network Laboratory
+            </h3>
+
+            <p>
+
+                Praktik jaringan komputer,
+                subnetting, IP address,
+                Ubuntu Server, dan konfigurasi
+                perangkat jaringan.
+
+            </p>
+
+            <span class="tag">
+                Networking
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="title reveal">
+
+        <small>
+            LET'S CONNECT
+        </small>
+
+        <h2>
+
+            Contact
+
+            <span class="gradient">
+                Me
+            </span>
+
+        </h2>
+
+    </div>
+
+
+    <div class="contact reveal">
+
+
+        <div class="glass contact-box">
+
+            <div class="big">
+                🚀
+            </div>
+
+            <p>
+
+                Terima kasih sudah mampir
+                ke portfolio saya.
+
+                Saya akan terus belajar,
+                berkembang, dan membuat
+                project-project baru
+                di dunia IT.
+
+            </p>
+
+
+            <a href="#home" class="btn primary">
+
+                Back To Top ↑
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
 <footer>
-    © 2026 <span>Muhammad All Daffa Hidayat</span> • XI TKJ 4
+
+    © 2026
+
+    <span>
+        Muhammad All Daffa Hidayat
+    </span>
+
+    • XI TKJ 4
+
 </footer>
+
 
 <script>
 
-/* TYPING EFFECT */
+/* =========================
+   TYPING EFFECT
+========================= */
 
 const words = [
+
     "Student XI TKJ 4",
+
     "Web Developer",
+
     "Network Enthusiast",
+
     "Docker Learner",
+
     "Future IT Professional"
+
 ];
 
 let wordIndex = 0;
+
 let charIndex = 0;
+
 let deleting = false;
 
-const typing = document.getElementById("typing");
+const typing =
+    document.getElementById("typing");
+
 
 function typeEffect(){
 
-    const word = words[wordIndex];
+    const word =
+        words[wordIndex];
+
 
     if(!deleting){
 
         typing.textContent =
-            word.substring(0,charIndex + 1);
+            word.substring(
+                0,
+                charIndex + 1
+            );
 
         charIndex++;
+
 
         if(charIndex === word.length){
 
             deleting = true;
 
-            setTimeout(typeEffect,1500);
+            setTimeout(
+                typeEffect,
+                1500
+            );
+
             return;
         }
 
-    }else{
+    }
+
+    else{
 
         typing.textContent =
-            word.substring(0,charIndex - 1);
+            word.substring(
+                0,
+                charIndex - 1
+            );
 
         charIndex--;
+
 
         if(charIndex === 0){
 
             deleting = false;
+
             wordIndex++;
 
-            if(wordIndex >= words.length){
+
+            if(
+                wordIndex >=
+                words.length
+            ){
+
                 wordIndex = 0;
+
             }
+
         }
+
     }
 
+
     setTimeout(
+
         typeEffect,
+
         deleting ? 45 : 90
+
     );
+
 }
 
 typeEffect();
 
 
-/* SCROLL REVEAL */
+
+/* =========================
+   SCROLL REVEAL
+========================= */
 
 const reveals =
-    document.querySelectorAll(".reveal");
+    document.querySelectorAll(
+        ".reveal"
+    );
+
 
 function revealOnScroll(){
 
@@ -971,80 +1580,172 @@ function revealOnScroll(){
         const top =
             el.getBoundingClientRect().top;
 
-        if(top < window.innerHeight - 100){
-            el.classList.add("active");
+
+        if(
+            top <
+            window.innerHeight - 100
+        ){
+
+            el.classList.add(
+                "active"
+            );
+
         }
 
     });
+
 }
 
-window.addEventListener("scroll",revealOnScroll);
+
+window.addEventListener(
+    "scroll",
+    revealOnScroll
+);
+
 
 revealOnScroll();
 
 
-/* SKILL BAR */
+
+/* =========================
+   SKILL BAR
+========================= */
 
 const bars =
-    document.querySelectorAll(".progress");
+    document.querySelectorAll(
+        ".progress"
+    );
+
 
 const skillObserver =
-    new IntersectionObserver(entries => {
+    new IntersectionObserver(
 
-        entries.forEach(entry => {
+        entries => {
 
-            if(entry.isIntersecting){
+            entries.forEach(
+                entry => {
 
-                const width =
-                    entry.target.dataset.width;
+                    if(
+                        entry.isIntersecting
+                    ){
 
-                entry.target.style.width = width;
-            }
+                        const width =
+                            entry.target
+                            .dataset
+                            .width;
 
-        });
 
-    },{threshold:.5});
+                        entry.target
+                            .style
+                            .width =
+                            width;
+
+                    }
+
+                }
+            );
+
+        },
+
+        {
+            threshold:.5
+        }
+
+    );
+
 
 bars.forEach(bar => {
-    skillObserver.observe(bar);
+
+    skillObserver.observe(
+        bar
+    );
+
 });
 
 
-/* PARTICLES */
 
-for(let i=0;i<60;i++){
+/* =========================
+   PARTICLES
+========================= */
 
-    const p =
-        document.createElement("div");
+for(
+    let i = 0;
+    i < 60;
+    i++
+){
 
-    p.className="particle";
+    const particle =
+        document.createElement(
+            "div"
+        );
 
-    p.style.left =
-        Math.random()*100+"vw";
 
-    p.style.animationDuration =
-        (Math.random()*8+5)+"s";
+    particle.className =
+        "particle";
 
-    p.style.animationDelay =
-        Math.random()*5+"s";
 
-    document.body.appendChild(p);
+    particle.style.left =
+        Math.random() *
+        100 +
+        "vw";
+
+
+    particle.style.animationDuration =
+        (
+            Math.random() *
+            8 +
+            5
+        ) +
+        "s";
+
+
+    particle.style.animationDelay =
+        Math.random() *
+        5 +
+        "s";
+
+
+    document.body.appendChild(
+        particle
+    );
+
 }
 
 
-/* MOUSE PARALLAX */
 
-document.addEventListener("mousemove",e=>{
+/* =========================
+   MOUSE PARALLAX
+========================= */
 
-    const x =
-        (window.innerWidth/2-e.clientX)/50;
+document.addEventListener(
+    "mousemove",
+    e => {
 
-    const y =
-        (window.innerHeight/2-e.clientY)/50;
+        const x =
+            (
+                window.innerWidth / 2 -
+                e.clientX
+            ) / 50;
 
-    document.querySelector(".avatar").style.transform =
-        `translate(${x}px,${y}px)`;
-});
+
+        const y =
+            (
+                window.innerHeight / 2 -
+                e.clientY
+            ) / 50;
+
+
+        const avatar =
+            document.querySelector(
+                ".avatar"
+            );
+
+
+        avatar.style.transform =
+            `translate(${x}px,${y}px)`;
+
+    }
+);
 
 </script>
 
