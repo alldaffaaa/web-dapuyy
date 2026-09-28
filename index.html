@@ -1,887 +1,1053 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Portfolio | Muhammad All Daffa Hidayat</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #050816;
-            color: white;
-            overflow-x: hidden;
-        }
-
-        /* BACKGROUND */
-        .background {
-            position: fixed;
-            inset: 0;
-            z-index: -2;
-            overflow: hidden;
-            background:
-                radial-gradient(circle at 20% 20%, #182b75 0%, transparent 30%),
-                radial-gradient(circle at 80% 70%, #551c75 0%, transparent 30%),
-                #050816;
-        }
-
-        .orb {
-            position: absolute;
-            width: 350px;
-            height: 350px;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: .35;
-            animation: float 8s ease-in-out infinite;
-        }
-
-        .orb.one {
-            background: #00eaff;
-            top: -100px;
-            left: -100px;
-        }
-
-        .orb.two {
-            background: #8b5cf6;
-            right: -100px;
-            bottom: -100px;
-            animation-delay: 2s;
-        }
-
-        .orb.three {
-            background: #ff2bd6;
-            top: 45%;
-            left: 45%;
-            width: 220px;
-            height: 220px;
-            animation-delay: 4s;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translate(0, 0);
-            }
-            50% {
-                transform: translate(50px, -40px);
-            }
-        }
-
-        /* NAVBAR */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 100;
-            padding: 20px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            backdrop-filter: blur(15px);
-            background: rgba(5, 8, 22, .65);
-            border-bottom: 1px solid rgba(255,255,255,.08);
-        }
-
-        .logo {
-            font-size: 23px;
-            font-weight: bold;
-            color: #00eaff;
-            text-shadow: 0 0 20px #00eaff;
-        }
-
-        nav ul {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            transition: .3s;
-            font-size: 15px;
-        }
-
-        nav a:hover {
-            color: #00eaff;
-            text-shadow: 0 0 15px #00eaff;
-        }
-
-        /* HERO */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 120px 20px 60px;
-        }
-
-        .hero-content {
-            max-width: 900px;
-        }
-
-        .profile {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 25px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 55px;
-            font-weight: bold;
-            background: linear-gradient(135deg, #00eaff, #8b5cf6);
-            box-shadow:
-                0 0 25px #00eaff,
-                0 0 60px rgba(139,92,246,.7);
-            animation: profileFloat 4s ease-in-out infinite;
-        }
-
-        @keyframes profileFloat {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-15px);
-            }
-        }
-
-        .hello {
-            color: #00eaff;
-            font-size: 18px;
-            letter-spacing: 4px;
-            margin-bottom: 15px;
-        }
-
-        h1 {
-            font-size: clamp(40px, 7vw, 78px);
-            line-height: 1.05;
-            margin-bottom: 15px;
-        }
-
-        h1 span {
-            background: linear-gradient(90deg, #00eaff, #8b5cf6, #ff2bd6);
-            background-size: 200%;
-            -webkit-background-clip: text;
-            color: transparent;
-            animation: gradient 4s linear infinite;
-        }
-
-        @keyframes gradient {
-            0% {
-                background-position: 0%;
-            }
-            100% {
-                background-position: 200%;
-            }
-        }
-
-        .typing {
-            font-size: 22px;
-            color: #cbd5e1;
-            min-height: 32px;
-        }
-
-        .cursor {
-            color: #00eaff;
-            animation: blink .7s infinite;
-        }
-
-        @keyframes blink {
-            50% {
-                opacity: 0;
-            }
-        }
-
-        .description {
-            max-width: 650px;
-            margin: 25px auto;
-            color: #94a3b8;
-            line-height: 1.8;
-        }
-
-        .buttons {
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 14px 28px;
-            border-radius: 50px;
-            text-decoration: none;
-            color: white;
-            border: 1px solid #00eaff;
-            transition: .3s;
-            font-weight: bold;
-        }
-
-        .btn.primary {
-            background: linear-gradient(90deg, #00eaff, #8b5cf6);
-            border: none;
-            box-shadow: 0 0 25px rgba(0,234,255,.3);
-        }
-
-        .btn:hover {
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 0 30px rgba(0,234,255,.5);
-        }
-
-        /* SECTION */
-        section {
-            padding: 100px 8%;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            font-size: 40px;
-        }
-
-        .section-title span {
-            color: #00eaff;
-        }
-
-        .section-title p {
-            color: #94a3b8;
-            margin-top: 10px;
-        }
-
-        /* ABOUT */
-        .about {
-            max-width: 1000px;
-            margin: auto;
-            padding: 40px;
-            border: 1px solid rgba(255,255,255,.1);
-            background: rgba(255,255,255,.04);
-            border-radius: 25px;
-            backdrop-filter: blur(15px);
-            text-align: center;
-            transition: .4s;
-        }
-
-        .about:hover {
-            transform: translateY(-8px);
-            border-color: rgba(0,234,255,.5);
-            box-shadow: 0 20px 60px rgba(0,234,255,.1);
-        }
-
-        .about p {
-            color: #cbd5e1;
-            line-height: 1.9;
-            font-size: 17px;
-        }
-
-        /* BIODATA */
-        .cards {
-            max-width: 1000px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .card {
-            padding: 30px;
-            border-radius: 20px;
-            text-align: center;
-            background: rgba(255,255,255,.05);
-            border: 1px solid rgba(255,255,255,.1);
-            backdrop-filter: blur(12px);
-            transition: .4s;
-        }
-
-        .card:hover {
-            transform: translateY(-12px);
-            border-color: #00eaff;
-            box-shadow: 0 0 35px rgba(0,234,255,.15);
-        }
-
-        .icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-
-        .card h3 {
-            margin-bottom: 10px;
-            color: #00eaff;
-        }
-
-        .card p {
-            color: #cbd5e1;
-        }
-
-        /* SKILLS */
-        .skills {
-            max-width: 850px;
-            margin: auto;
-        }
-
-        .skill {
-            margin-bottom: 25px;
-        }
-
-        .skill-info {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-        }
-
-        .skill-info span:last-child {
-            color: #00eaff;
-        }
-
-        .bar {
-            height: 10px;
-            border-radius: 20px;
-            background: rgba(255,255,255,.1);
-            overflow: hidden;
-        }
-
-        .progress {
-            height: 100%;
-            width: 0;
-            border-radius: 20px;
-            background: linear-gradient(90deg, #00eaff, #8b5cf6);
-            box-shadow: 0 0 15px #00eaff;
-            transition: width 2s ease;
-        }
-
-        /* PROJECT */
-        .projects {
-            max-width: 1100px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .project {
-            padding: 30px;
-            border-radius: 22px;
-            background: linear-gradient(
-                145deg,
-                rgba(0,234,255,.08),
-                rgba(139,92,246,.08)
-            );
-            border: 1px solid rgba(255,255,255,.1);
-            transition: .4s;
-        }
-
-        .project:hover {
-            transform: translateY(-12px) rotateX(3deg);
-            border-color: #8b5cf6;
-            box-shadow: 0 20px 50px rgba(139,92,246,.15);
-        }
-
-        .project h3 {
-            color: white;
-            margin-bottom: 12px;
-        }
-
-        .project p {
-            color: #94a3b8;
-            line-height: 1.7;
-        }
-
-        .tag {
-            display: inline-block;
-            margin-top: 18px;
-            padding: 7px 12px;
-            border-radius: 20px;
-            background: rgba(0,234,255,.1);
-            color: #00eaff;
-            font-size: 12px;
-        }
-
-        /* CONTACT */
-        .contact {
-            max-width: 800px;
-            margin: auto;
-            text-align: center;
-        }
-
-        .contact-box {
-            padding: 40px;
-            border-radius: 25px;
-            background: rgba(255,255,255,.04);
-            border: 1px solid rgba(255,255,255,.1);
-        }
-
-        .contact-box p {
-            color: #94a3b8;
-            margin-bottom: 25px;
-            line-height: 1.8;
-        }
-
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 30px;
-            border-top: 1px solid rgba(255,255,255,.08);
-            color: #64748b;
-        }
-
-        footer span {
-            color: #00eaff;
-        }
-
-        /* PARTICLES */
-        .particle {
-            position: fixed;
-            width: 3px;
-            height: 3px;
-            background: #00eaff;
-            border-radius: 50%;
-            pointer-events: none;
-            opacity: .6;
-            animation: particleMove linear infinite;
-            z-index: -1;
-        }
-
-        @keyframes particleMove {
-            from {
-                transform: translateY(100vh);
-            }
-            to {
-                transform: translateY(-10vh);
-            }
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 800px) {
-            nav ul {
-                display: none;
-            }
-
-            .cards,
-            .projects {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 80px 5%;
-            }
-
-            .about {
-                padding: 25px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad All Daffa Hidayat | Portfolio</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+:root{
+    --cyan:#00f5ff;
+    --purple:#8b5cf6;
+    --pink:#ff2bd6;
+    --bg:#030712;
+    --text:#f8fafc;
+    --muted:#94a3b8;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+/* BACKGROUND */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-5;
+    background:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:50px 50px;
+    mask-image:linear-gradient(to bottom,black,transparent);
+}
+
+.bg{
+    position:fixed;
+    inset:0;
+    z-index:-10;
+    overflow:hidden;
+}
+
+.blob{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(100px);
+    opacity:.3;
+    animation:blob 12s infinite alternate ease-in-out;
+}
+
+.blob1{
+    width:450px;
+    height:450px;
+    background:var(--cyan);
+    left:-200px;
+    top:-150px;
+}
+
+.blob2{
+    width:500px;
+    height:500px;
+    background:var(--purple);
+    right:-200px;
+    bottom:-200px;
+    animation-delay:2s;
+}
+
+.blob3{
+    width:300px;
+    height:300px;
+    background:var(--pink);
+    left:45%;
+    top:40%;
+    animation-delay:4s;
+}
+
+@keyframes blob{
+    from{transform:translate(0,0) scale(1)}
+    to{transform:translate(100px,-70px) scale(1.2)}
+}
+
+/* NAVBAR */
+
+nav{
+    position:fixed;
+    top:15px;
+    left:50%;
+    transform:translateX(-50%);
+    width:90%;
+    max-width:1100px;
+    padding:14px 22px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    border:1px solid rgba(255,255,255,.1);
+    background:rgba(5,8,20,.65);
+    backdrop-filter:blur(20px);
+    border-radius:18px;
+    box-shadow:0 10px 40px rgba(0,0,0,.3);
+}
+
+.logo{
+    font-weight:800;
+    font-size:20px;
+    color:var(--cyan);
+    text-shadow:0 0 20px rgba(0,245,255,.7);
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#cbd5e1;
+    font-size:14px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:var(--cyan);
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:120px 20px 80px;
+}
+
+.hero-content{
+    max-width:950px;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:9px 16px;
+    border:1px solid rgba(0,245,255,.3);
+    border-radius:50px;
+    background:rgba(0,245,255,.06);
+    color:var(--cyan);
+    font-size:13px;
+    margin-bottom:25px;
+    animation:pulse 2s infinite;
+}
+
+.dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#22c55e;
+    box-shadow:0 0 12px #22c55e;
+}
+
+@keyframes pulse{
+    50%{box-shadow:0 0 30px rgba(0,245,255,.15)}
+}
+
+.avatar{
+    width:155px;
+    height:155px;
+    margin:0 auto 30px;
+    border-radius:50%;
+    padding:4px;
+    background:linear-gradient(135deg,var(--cyan),var(--purple),var(--pink));
+    box-shadow:
+        0 0 30px rgba(0,245,255,.35),
+        0 0 80px rgba(139,92,246,.2);
+    animation:avatar 4s ease-in-out infinite;
+}
+
+.avatar-inner{
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#080d1d;
+    font-size:50px;
+    font-weight:800;
+}
+
+@keyframes avatar{
+    50%{transform:translateY(-12px) rotate(3deg)}
+}
+
+h1{
+    font-size:clamp(42px,7vw,82px);
+    line-height:1;
+    letter-spacing:-4px;
+    margin-bottom:20px;
+}
+
+.gradient{
+    background:linear-gradient(
+        90deg,
+        var(--cyan),
+        var(--purple),
+        var(--pink),
+        var(--cyan)
+    );
+    background-size:300%;
+    -webkit-background-clip:text;
+    color:transparent;
+    animation:gradient 5s linear infinite;
+}
+
+@keyframes gradient{
+    to{background-position:300%}
+}
+
+.subtitle{
+    font-size:22px;
+    color:#cbd5e1;
+    min-height:35px;
+}
+
+.cursor{
+    color:var(--cyan);
+}
+
+.desc{
+    max-width:680px;
+    margin:25px auto;
+    line-height:1.8;
+    color:var(--muted);
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
+
+.btn{
+    position:relative;
+    overflow:hidden;
+    padding:15px 28px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:700;
+    color:white;
+    border:1px solid rgba(255,255,255,.15);
+    transition:.3s;
+}
+
+.btn.primary{
+    background:linear-gradient(135deg,var(--cyan),var(--purple));
+    box-shadow:0 0 30px rgba(0,245,255,.2);
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 40px rgba(0,245,255,.2);
+}
+
+/* SECTION */
+
+section{
+    padding:110px 7%;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:55px;
+}
+
+.title small{
+    color:var(--cyan);
+    letter-spacing:4px;
+    font-weight:700;
+}
+
+.title h2{
+    font-size:45px;
+    margin-top:10px;
+}
+
+.title p{
+    color:var(--muted);
+    margin-top:12px;
+}
+
+/* ABOUT */
+
+.about-container{
+    max-width:1050px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.glass{
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:25px;
+    padding:35px;
+    backdrop-filter:blur(20px);
+    transition:.4s;
+}
+
+.glass:hover{
+    transform:translateY(-8px);
+    border-color:rgba(0,245,255,.35);
+    box-shadow:0 20px 60px rgba(0,245,255,.08);
+}
+
+.glass h3{
+    font-size:22px;
+    margin-bottom:18px;
+}
+
+.glass h3 span{
+    color:var(--cyan);
+}
+
+.glass p{
+    color:#aeb9c9;
+    line-height:1.9;
+}
+
+.info{
+    display:grid;
+    gap:15px;
+}
+
+.info-item{
+    display:flex;
+    justify-content:space-between;
+    padding:15px;
+    border-radius:12px;
+    background:rgba(255,255,255,.035);
+}
+
+.info-item span:first-child{
+    color:var(--muted);
+}
+
+.info-item span:last-child{
+    color:white;
+    font-weight:600;
+}
+
+/* STATS */
+
+.stats{
+    max-width:1050px;
+    margin:25px auto 0;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.stat{
+    text-align:center;
+    padding:28px;
+    border-radius:20px;
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.stat h3{
+    font-size:35px;
+    color:var(--cyan);
+}
+
+.stat p{
+    color:var(--muted);
+    margin-top:5px;
+}
+
+/* SKILLS */
+
+.skills{
+    max-width:850px;
+    margin:auto;
+}
+
+.skill{
+    margin-bottom:27px;
+}
+
+.skill-head{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:9px;
+}
+
+.skill-head span:last-child{
+    color:var(--cyan);
+}
+
+.bar{
+    height:10px;
+    border-radius:20px;
+    background:rgba(255,255,255,.08);
+    overflow:hidden;
+}
+
+.progress{
+    height:100%;
+    width:0;
+    border-radius:20px;
+    background:linear-gradient(90deg,var(--cyan),var(--purple));
+    box-shadow:0 0 15px var(--cyan);
+    transition:2s ease;
+}
+
+/* PROJECT */
+
+.projects{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.project{
+    min-height:260px;
+    padding:30px;
+    border-radius:25px;
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.06),
+        rgba(255,255,255,.015)
+    );
+    border:1px solid rgba(255,255,255,.09);
+    transition:.5s;
+    position:relative;
+    overflow:hidden;
+}
+
+.project::before{
+    content:"";
+    position:absolute;
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    background:var(--cyan);
+    filter:blur(80px);
+    opacity:.12;
+    right:-60px;
+    top:-60px;
+}
+
+.project:hover{
+    transform:translateY(-12px) scale(1.02);
+    border-color:rgba(0,245,255,.4);
+}
+
+.project-icon{
+    font-size:38px;
+    margin-bottom:20px;
+}
+
+.project h3{
+    margin-bottom:12px;
+    font-size:20px;
+}
+
+.project p{
+    color:var(--muted);
+    line-height:1.7;
+}
+
+.tag{
+    display:inline-block;
+    margin-top:20px;
+    padding:7px 12px;
+    border-radius:30px;
+    background:rgba(0,245,255,.08);
+    color:var(--cyan);
+    font-size:12px;
+}
+
+/* CONTACT */
+
+.contact{
+    max-width:800px;
+    margin:auto;
+    text-align:center;
+}
+
+.contact-box{
+    padding:50px 30px;
+}
+
+.contact-box .big{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.contact-box p{
+    color:var(--muted);
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:30px;
+    border-top:1px solid rgba(255,255,255,.08);
+    color:#64748b;
+}
+
+footer span{
+    color:var(--cyan);
+}
+
+/* REVEAL */
+
+.reveal{
+    opacity:0;
+    transform:translateY(50px);
+    transition:1s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* PARTICLES */
+
+.particle{
+    position:fixed;
+    width:3px;
+    height:3px;
+    background:var(--cyan);
+    border-radius:50%;
+    pointer-events:none;
+    opacity:.5;
+    z-index:-2;
+    animation:particle linear infinite;
+}
+
+@keyframes particle{
+    from{transform:translateY(105vh)}
+    to{transform:translateY(-10vh)}
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    nav{
+        width:94%;
+    }
+
+    nav ul{
+        display:none;
+    }
+
+    h1{
+        letter-spacing:-2px;
+    }
+
+    .about-container{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .projects{
+        grid-template-columns:1fr;
+    }
+
+    section{
+        padding:85px 5%;
+    }
+
+    .title h2{
+        font-size:36px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <div class="background">
-        <div class="orb one"></div>
-        <div class="orb two"></div>
-        <div class="orb three"></div>
+<div class="bg">
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+</div>
+
+<!-- NAVBAR -->
+
+<nav>
+    <div class="logo">DAFFA.DEV</div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#project">Project</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            <span class="dot"></span>
+            Available for learning & creating
+        </div>
+
+        <div class="avatar">
+            <div class="avatar-inner">AD</div>
+        </div>
+
+        <h1>
+            Muhammad All<br>
+            <span class="gradient">Daffa Hidayat</span>
+        </h1>
+
+        <div class="subtitle">
+            <span id="typing"></span><span class="cursor">|</span>
+        </div>
+
+        <p class="desc">
+            Pelajar <b>XI TKJ 4</b> yang tertarik dengan dunia
+            teknologi, jaringan komputer, web development,
+            dan berbagai project kreatif di bidang IT.
+        </p>
+
+        <div class="buttons">
+            <a href="#about" class="btn primary">Explore My World ✨</a>
+            <a href="#project" class="btn">View Projects →</a>
+        </div>
+
     </div>
 
-    <!-- NAVBAR -->
-    <nav>
-        <div class="logo">DAFFA.DEV</div>
+</section>
 
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#project">Project</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+<!-- ABOUT -->
 
-    <!-- HERO -->
-    <section class="hero" id="home">
+<section id="about">
 
-        <div class="hero-content">
+    <div class="title reveal">
+        <small>WHO AM I?</small>
+        <h2>Tentang <span class="gradient">Saya</span></h2>
+        <p>Sedikit cerita tentang saya</p>
+    </div>
 
-            <div class="profile">
-                AD
-            </div>
+    <div class="about-container reveal">
 
-            <div class="hello">
-                HELLO, I'M
-            </div>
+        <div class="glass">
+            <h3>👋 Halo, saya <span>Daffa</span></h3>
 
-            <h1>
-                Muhammad All <br>
-                <span>Daffa Hidayat</span>
-            </h1>
-
-            <div class="typing">
-                <span id="typingText"></span>
-                <span class="cursor">|</span>
-            </div>
-
-            <p class="description">
-                Pelajar kelas XI TKJ 4 yang tertarik dengan dunia teknologi,
-                jaringan komputer, web development, dan berbagai hal menarik
-                di bidang IT.
-            </p>
-
-            <div class="buttons">
-                <a href="#about" class="btn primary">Explore Portfolio</a>
-                <a href="#contact" class="btn">Contact Me</a>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about">
-
-        <div class="section-title">
-            <h2>Tentang <span>Saya</span></h2>
-            <p>Kenali saya lebih dekat</p>
-        </div>
-
-        <div class="about">
             <p>
-                Halo! Saya <strong>Muhammad All Daffa Hidayat</strong>,
-                seorang siswa dari kelas <strong>XI TKJ 4</strong>.
-                Saya memiliki ketertarikan terhadap teknologi informasi,
-                jaringan komputer, dan pengembangan website.
-                Saya senang mempelajari hal-hal baru dan mencoba membuat
-                berbagai project sederhana menggunakan teknologi yang saya pelajari.
+                Nama saya <b>Muhammad All Daffa Hidayat</b>.
+                Saya merupakan siswa kelas XI TKJ 4 yang
+                sedang belajar dan mengembangkan kemampuan
+                di bidang teknologi informasi.
+                Saya tertarik dengan jaringan komputer,
+                pemrograman web, Linux, Docker, dan teknologi
+                lainnya.
             </p>
         </div>
 
-    </section>
+        <div class="glass">
+            <h3>📌 Personal Info</h3>
 
-    <!-- BIODATA -->
-    <section>
+            <div class="info">
 
-        <div class="section-title">
-            <h2>Data <span>Diri</span></h2>
-            <p>Informasi singkat tentang saya</p>
+                <div class="info-item">
+                    <span>Nama</span>
+                    <span>Muhammad All Daffa Hidayat</span>
+                </div>
+
+                <div class="info-item">
+                    <span>Kelas</span>
+                    <span>XI TKJ 4</span>
+                </div>
+
+                <div class="info-item">
+                    <span>Umur</span>
+                    <span>100 Tahun</span>
+                </div>
+
+                <div class="info-item">
+                    <span>Hobi</span>
+                    <span>Nyoli 🎮</span>
+                </div>
+
+            </div>
         </div>
 
-        <div class="cards">
+    </div>
 
-            <div class="card">
-                <div class="icon">👨‍💻</div>
-                <h3>Nama</h3>
-                <p>Muhammad All Daffa Hidayat</p>
-            </div>
+    <div class="stats reveal">
 
-            <div class="card">
-                <div class="icon">🎓</div>
-                <h3>Kelas</h3>
-                <p>XI TKJ 4</p>
-            </div>
+        <div class="stat">
+            <h3>XI</h3>
+            <p>Kelas</p>
+        </div>
 
-            <div class="card">
-                <div class="icon">🎂</div>
-                <h3>Umur</h3>
-                <p>16 Tahun</p>
-            </div>
+        <div class="stat">
+            <h3>TKJ</h3>
+            <p>Jurusan</p>
+        </div>
 
-            <div class="card">
-                <div class="icon">🎮</div>
-                <h3>Hobi</h3>
-                <p>Main Game</p>
-            </div>
+        <div class="stat">
+            <h3>∞</h3>
+            <p>Semangat Belajar</p>
+        </div>
 
-            <div class="card">
-                <div class="icon">🌐</div>
-                <h3>Bidang</h3>
-                <p>Teknologi & Jaringan</p>
-            </div>
+    </div>
 
-            <div class="card">
-                <div class="icon">🚀</div>
-                <h3>Tujuan</h3>
-                <p>Terus berkembang di bidang IT</p>
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+    <div class="title reveal">
+        <small>MY ABILITIES</small>
+        <h2>My <span class="gradient">Skills</span></h2>
+        <p>Teknologi yang sedang saya pelajari</p>
+    </div>
+
+    <div class="skills reveal">
+
+        <div class="skill">
+            <div class="skill-head">
+                <span>HTML</span>
+                <span>90%</span>
             </div>
+            <div class="bar">
+                <div class="progress" data-width="90%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <div class="skill-head">
+                <span>CSS</span>
+                <span>85%</span>
+            </div>
+            <div class="bar">
+                <div class="progress" data-width="85%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <div class="skill-head">
+                <span>JavaScript</span>
+                <span>75%</span>
+            </div>
+            <div class="bar">
+                <div class="progress" data-width="75%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <div class="skill-head">
+                <span>Networking</span>
+                <span>85%</span>
+            </div>
+            <div class="bar">
+                <div class="progress" data-width="85%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <div class="skill-head">
+                <span>Docker</span>
+                <span>70%</span>
+            </div>
+            <div class="bar">
+                <div class="progress" data-width="70%"></div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROJECT -->
+
+<section id="project">
+
+    <div class="title reveal">
+        <small>WHAT I'VE DONE</small>
+        <h2>My <span class="gradient">Projects</span></h2>
+        <p>Beberapa project yang saya kerjakan</p>
+    </div>
+
+    <div class="projects">
+
+        <div class="project reveal">
+            <div class="project-icon">🌐</div>
+            <h3>Modern Portfolio</h3>
+            <p>
+                Website portfolio pribadi dengan desain
+                modern, animasi, responsive layout,
+                dan JavaScript.
+            </p>
+            <span class="tag">HTML • CSS • JS</span>
+        </div>
+
+        <div class="project reveal">
+            <div class="project-icon">🐳</div>
+            <h3>Docker Compose</h3>
+            <p>
+                Project menjalankan beberapa service
+                menggunakan Docker Compose seperti
+                WordPress dan database.
+            </p>
+            <span class="tag">Docker</span>
+        </div>
+
+        <div class="project reveal">
+            <div class="project-icon">🖧</div>
+            <h3>Network Laboratory</h3>
+            <p>
+                Praktik jaringan komputer, subnetting,
+                IP address, Ubuntu Server, dan konfigurasi
+                perangkat jaringan.
+            </p>
+            <span class="tag">Networking</span>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="title reveal">
+        <small>LET'S CONNECT</small>
+        <h2>Contact <span class="gradient">Me</span></h2>
+    </div>
+
+    <div class="contact reveal">
+
+        <div class="glass contact-box">
+
+            <div class="big">🚀</div>
+
+            <p>
+                Terima kasih sudah mampir ke portfolio saya.
+                Saya akan terus belajar, berkembang,
+                dan membuat project-project baru di dunia IT.
+            </p>
+
+            <a href="#home" class="btn primary">
+                Back To Top ↑
+            </a>
 
         </div>
 
-    </section>
+    </div>
 
-    <!-- SKILLS -->
-    <section id="skills">
+</section>
 
-        <div class="section-title">
-            <h2>My <span>Skills</span></h2>
-            <p>Kemampuan yang sedang saya pelajari</p>
-        </div>
+<footer>
+    © 2026 <span>Muhammad All Daffa Hidayat</span> • XI TKJ 4
+</footer>
 
-        <div class="skills">
+<script>
 
-            <div class="skill">
-                <div class="skill-info">
-                    <span>HTML</span>
-                    <span>90%</span>
-                </div>
-                <div class="bar">
-                    <div class="progress" data-width="90%"></div>
-                </div>
-            </div>
+/* TYPING EFFECT */
 
-            <div class="skill">
-                <div class="skill-info">
-                    <span>CSS</span>
-                    <span>85%</span>
-                </div>
-                <div class="bar">
-                    <div class="progress" data-width="85%"></div>
-                </div>
-            </div>
+const words = [
+    "Student XI TKJ 4",
+    "Web Developer",
+    "Network Enthusiast",
+    "Docker Learner",
+    "Future IT Professional"
+];
 
-            <div class="skill">
-                <div class="skill-info">
-                    <span>JavaScript</span>
-                    <span>75%</span>
-                </div>
-                <div class="bar">
-                    <div class="progress" data-width="75%"></div>
-                </div>
-            </div>
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
 
-            <div class="skill">
-                <div class="skill-info">
-                    <span>Networking</span>
-                    <span>80%</span>
-                </div>
-                <div class="bar">
-                    <div class="progress" data-width="80%"></div>
-                </div>
-            </div>
+const typing = document.getElementById("typing");
 
-            <div class="skill">
-                <div class="skill-info">
-                    <span>Docker</span>
-                    <span>70%</span>
-                </div>
-                <div class="bar">
-                    <div class="progress" data-width="70%"></div>
-                </div>
-            </div>
+function typeEffect(){
 
-        </div>
+    const word = words[wordIndex];
 
-    </section>
+    if(!deleting){
 
-    <!-- PROJECT -->
-    <section id="project">
+        typing.textContent =
+            word.substring(0,charIndex + 1);
 
-        <div class="section-title">
-            <h2>My <span>Projects</span></h2>
-            <p>Beberapa project yang pernah saya kerjakan</p>
-        </div>
+        charIndex++;
 
-        <div class="projects">
+        if(charIndex === word.length){
 
-            <div class="project">
-                <h3>🌐 Website Portfolio</h3>
-                <p>
-                    Membuat website portfolio pribadi menggunakan
-                    HTML, CSS, dan JavaScript dengan tampilan modern.
-                </p>
-                <span class="tag">HTML • CSS • JS</span>
-            </div>
+            deleting = true;
 
-            <div class="project">
-                <h3>🐳 Docker Project</h3>
-                <p>
-                    Belajar menjalankan container dan membuat aplikasi
-                    menggunakan Docker serta Docker Compose.
-                </p>
-                <span class="tag">Docker</span>
-            </div>
+            setTimeout(typeEffect,1500);
+            return;
+        }
 
-            <div class="project">
-                <h3>🖧 Network Lab</h3>
-                <p>
-                    Praktik konfigurasi jaringan, IP address,
-                    subnetting, Ubuntu Server, dan berbagai perangkat jaringan.
-                </p>
-                <span class="tag">Networking</span>
-            </div>
+    }else{
 
-        </div>
+        typing.textContent =
+            word.substring(0,charIndex - 1);
 
-    </section>
+        charIndex--;
 
-    <!-- CONTACT -->
-    <section id="contact">
+        if(charIndex === 0){
 
-        <div class="section-title">
-            <h2>Contact <span>Me</span></h2>
-            <p>Let's connect</p>
-        </div>
+            deleting = false;
+            wordIndex++;
 
-        <div class="contact">
+            if(wordIndex >= words.length){
+                wordIndex = 0;
+            }
+        }
+    }
 
-            <div class="contact-box">
+    setTimeout(
+        typeEffect,
+        deleting ? 45 : 90
+    );
+}
 
-                <p>
-                    Terima kasih sudah mengunjungi portfolio saya.
-                    Website ini dibuat sebagai portfolio pribadi
-                    dan bagian dari perjalanan saya belajar di bidang teknologi.
-                </p>
+typeEffect();
 
-                <a href="#home" class="btn primary">
-                    Back To Top ↑
-                </a>
 
-            </div>
+/* SCROLL REVEAL */
 
-        </div>
+const reveals =
+    document.querySelectorAll(".reveal");
 
-    </section>
+function revealOnScroll(){
 
-    <!-- FOOTER -->
-    <footer>
-        © 2026 <span>Muhammad All Daffa Hidayat</span> — XI TKJ 4
-    </footer>
+    reveals.forEach(el => {
 
-    <script>
+        const top =
+            el.getBoundingClientRect().top;
 
-        /* TYPING EFFECT */
+        if(top < window.innerHeight - 100){
+            el.classList.add("active");
+        }
 
-        const texts = [
-            "Student XI TKJ 4",
-            "Web Developer",
-            "Network Enthusiast",
-            "Future IT Professional"
-        ];
+    });
+}
 
-        const typingText = document.getElementById("typingText");
+window.addEventListener("scroll",revealOnScroll);
 
-        let textIndex = 0;
-        let charIndex = 0;
-        let deleting = false;
+revealOnScroll();
 
-        function typingEffect() {
 
-            const currentText = texts[textIndex];
+/* SKILL BAR */
 
-            if (!deleting) {
-                typingText.textContent =
-                    currentText.substring(0, charIndex + 1);
+const bars =
+    document.querySelectorAll(".progress");
 
-                charIndex++;
+const skillObserver =
+    new IntersectionObserver(entries => {
 
-                if (charIndex === currentText.length) {
-                    deleting = true;
+        entries.forEach(entry => {
 
-                    setTimeout(typingEffect, 1500);
-                    return;
-                }
+            if(entry.isIntersecting){
 
-            } else {
+                const width =
+                    entry.target.dataset.width;
 
-                typingText.textContent =
-                    currentText.substring(0, charIndex - 1);
-
-                charIndex--;
-
-                if (charIndex === 0) {
-                    deleting = false;
-                    textIndex++;
-
-                    if (textIndex >= texts.length) {
-                        textIndex = 0;
-                    }
-                }
+                entry.target.style.width = width;
             }
 
-            setTimeout(
-                typingEffect,
-                deleting ? 50 : 100
-            );
-        }
-
-        typingEffect();
-
-
-        /* SKILL BAR ANIMATION */
-
-        const progressBars =
-            document.querySelectorAll(".progress");
-
-        const observer =
-            new IntersectionObserver(entries => {
-
-                entries.forEach(entry => {
-
-                    if (entry.isIntersecting) {
-
-                        const width =
-                            entry.target.getAttribute("data-width");
-
-                        entry.target.style.width = width;
-
-                    }
-
-                });
-
-            }, {
-                threshold: 0.5
-            });
-
-        progressBars.forEach(bar => {
-            observer.observe(bar);
         });
 
+    },{threshold:.5});
 
-        /* PARTICLES */
-
-        for (let i = 0; i < 45; i++) {
-
-            const particle =
-                document.createElement("div");
-
-            particle.classList.add("particle");
-
-            particle.style.left =
-                Math.random() * 100 + "vw";
-
-            particle.style.animationDuration =
-                (Math.random() * 8 + 5) + "s";
-
-            particle.style.animationDelay =
-                Math.random() * 5 + "s";
-
-            particle.style.opacity =
-                Math.random();
-
-            document.body.appendChild(particle);
-        }
+bars.forEach(bar => {
+    skillObserver.observe(bar);
+});
 
 
-        /* MOUSE GLOW EFFECT */
+/* PARTICLES */
 
-        document.addEventListener("mousemove", e => {
+for(let i=0;i<60;i++){
 
-            const glow =
-                document.querySelector(".orb.three");
+    const p =
+        document.createElement("div");
 
-            glow.style.left =
-                (e.clientX - 100) + "px";
+    p.className="particle";
 
-            glow.style.top =
-                (e.clientY - 100) + "px";
+    p.style.left =
+        Math.random()*100+"vw";
 
-        });
+    p.style.animationDuration =
+        (Math.random()*8+5)+"s";
 
-    </script>
+    p.style.animationDelay =
+        Math.random()*5+"s";
+
+    document.body.appendChild(p);
+}
+
+
+/* MOUSE PARALLAX */
+
+document.addEventListener("mousemove",e=>{
+
+    const x =
+        (window.innerWidth/2-e.clientX)/50;
+
+    const y =
+        (window.innerHeight/2-e.clientY)/50;
+
+    document.querySelector(".avatar").style.transform =
+        `translate(${x}px,${y}px)`;
+});
+
+</script>
 
 </body>
 </html>
+```
